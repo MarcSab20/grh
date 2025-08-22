@@ -1,0 +1,13 @@
+.vbox_background_center{
+	-fx-background-image:url("logo_army.png")
+	
+}
+
+.vbox_background_right{
+	-fx-background-image:url("vert.png")
+	
+}
+
+.create-btn:hover{
+	-fx-background-color: #a6e2b3
+}

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="borderPane" prefHeight="909.0" prefWidth="1272.0" styleClass="root" stylesheets="@ajoutPersonnel.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AjoutPersonnelController">
+    <top>
+        <VBox spacing="0">
+            <!-- Menu Bar from landing page -->
+            <MenuBar fx:id="menuBar" stylesheets="@landing.css">
+                <Menu text="Fichier">
+                    <Menu fx:id="personnelMenu" onAction="#handleAddPersonnel" text="Ajouter un personnel" />
+                    <Menu onAction="#handleExportPersonnel" text="Exporter les données" />
+                    <Menu onAction="#handleImportPersonnel" text="Importer les données" />
+                    <Menu fx:id="personnelModDown" onAction="#handlePersonnelModDown" text="Modifier/Télécharger" />
+                    <Menu text="Visualiser un personnel" onAction="#handlePersonnelVisual" />
+                </Menu>
+                <Menu text="Précédent">
+                    <MenuItem text="Revenir à l'arrière" />
+                    <MenuItem text="Page d'accueil" />
+                </Menu>
+                <Menu text="À propos">
+                    <MenuItem fx:id="aboutMenuItem" onAction="#showAboutDialog" text="À propos de l'application" />
+                </Menu>
+                <Menu text="Historique">
+                    <MenuItem fx:id="historyMenuItem" onAction="#showHistory" text="Afficher l'historique" />
+                </Menu>
+            </MenuBar>
+            
+            <!-- ToolBar from landing page -->
+            <ToolBar stylesheets="@landing.css">
+                <HBox spacing="15" alignment="CENTER" HBox.hgrow="ALWAYS">
+                    <Button fx:id="addPersonnel_btn" onAction="#handleNewPersonnel" text="+ Nouveau personnel" />
+                    <Button fx:id="expPersonnel_btn" onAction="#handleExportPersonnel" text="↓ Exporter les données" />
+                    <Button fx:id="impPersonnel_btn" onAction="#handleImportPersonnel" text="↑ Importer les données" />
+                    <Button fx:id="modDownPersonnel_btn" onAction="#handlePersonnelModDown" text="⚙ Modifier ou télécharger" />
+                    <Button fx:id="visPersonnel_btn" onAction="#handlePersonnelVisual" text="👁 Visualiser un personnel" />
+                </HBox>
+            </ToolBar>
+        </VBox>
+    </top>
+    
+    <left>
+        <!-- Sidebar from personnel page with scroll pane -->
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="sidebar-scroll">
+            <VBox fx:id="sidebar" styleClass="sidebar" stylesheets="@ajoutPersonnel.css" VBox.vgrow="ALWAYS">
+                <!-- Logo Container -->
+                <HBox alignment="CENTER" styleClass="logo-container">
+                    <ImageView fitHeight="160.0" fitWidth="180.0">
+                        <image>
+                            <Image url="@logo_army.png" />
+                        </image>
+                    </ImageView>
+                </HBox>
+                
+                <!-- Sidebar buttons with gradient borders from personnel page -->
+                <!-- Informations Personnelles et sous-sections -->
+                <Button fx:id="personelBtn" onAction="#showPersonalInfo" styleClass="main-btn" text="Informations Personnelles">
+                </Button>
+                <VBox fx:id="personalSubMenu" visible="false" managed="false" styleClass="sub-menu">
+                    <Button fx:id="personalIdentityBtn" onAction="#showPersonalIdentity" styleClass="sub-btn" text="Identité Personnelle">
+                    </Button>
+                    <Button fx:id="socialIdentityBtn" onAction="#showSocialIdentity" styleClass="sub-btn" text="Identité Sociale">
+                    </Button>
+                    <Button fx:id="culturalIdentityBtn" onAction="#showCulturalIdentity" styleClass="sub-btn" text="Identité Culturelle">
+                    </Button>
+                </VBox>
+                
+                <!-- Grade -->
+                <Button fx:id="gradeBtn" onAction="#showGradeInfo" styleClass="main-btn" text="Grade">
+                </Button>
+                
+                <!-- Formation et Poste -->
+                <Button fx:id="formationBtn" onAction="#showFormationInfo" styleClass="main-btn" text="Formation et Poste">
+                </Button>
+                
+                <!-- Écoles et Diplômes -->
+                <Button fx:id="ecoleBtn" onAction="#showEcolesEtDiplomesInfo" styleClass="main-btn" text="Écoles et Diplômes">
+                </Button>
+                
+                <!-- Opérations et Déploiements -->
+                <Button fx:id="operationBtn" onAction="#showOperationsInfo" styleClass="main-btn" text="Opérations et Missions">
+                </Button>
+                <VBox fx:id="operationsSubMenu" visible="false" managed="false" styleClass="sub-menu">
+                    <Button fx:id="interiorOperationsBtn" onAction="#showInteriorOperations" styleClass="sub-btn" text="Opérations Intérieures">
+                    </Button>
+                    <Button fx:id="exteriorOperationsBtn" onAction="#showExteriorOperations" styleClass="sub-btn" text="Opérations Extérieures">
+                    </Button>
+                </VBox>
+                
+                <!-- Décorations -->
+                <Button fx:id="decorationBtn" onAction="#showDecorationInfo" styleClass="main-btn" text="Décorations">
+                </Button>
+                
+                <!-- Punitions -->
+                <Button fx:id="punishmentBtn" onAction="#showPunishmentInfo" styleClass="main-btn" text="Punitions">
+                </Button>
+                
+                <!-- Langues -->
+                <Button fx:id="languesBtn" onAction="#showLanguesInfo" styleClass="main-btn" text="Langues">
+                </Button>
+                
+                <!-- Informations Spécifiques -->
+                <Button fx:id="specialBtn" onAction="#showSpecialInfo" styleClass="main-btn" text="Informations Spécifiques">
+                </Button>
+                <VBox fx:id="specialSubMenu" visible="false" managed="false" styleClass="sub-menu">
+                    <Button fx:id="generalInfoBtn" onAction="#showGeneralSpecialInfo" styleClass="sub-btn" text="Général">
+                    </Button>
+                    <Button fx:id="navigatingCrewBtn" onAction="#showNavigatingCrewInfo" styleClass="sub-btn" text="Personnel Naviguant">
+                    </Button>
+                    <Button fx:id="maintenanceBtn" onAction="#showMaintenanceInfo" styleClass="sub-btn" text="Maintenance">
+                    </Button>
+                    <Button fx:id="specialtyBtn" onAction="#showSpecialtyInfo" styleClass="sub-btn" text="Spécialité">
+                    </Button>
+                </VBox>
+                
+                <!-- Dotations Militaires -->
+                <Button fx:id="dotationBtn" onAction="#showMilitaryDotation" styleClass="main-btn" text="Dotations Militaires">
+                </Button>
+                <VBox fx:id="dotationSubMenu" visible="false" managed="false" styleClass="sub-menu">
+                    <Button fx:id="dotation20MaiBtn" onAction="#showDotation20Mai" styleClass="sub-btn" text="Dotation 20 Mai">
+                    </Button>
+                    <Button fx:id="dotationParticuliereBtn" onAction="#showDotationParticuliere" styleClass="sub-btn" text="Dotation Particulière">
+                    </Button>
+                    <Button fx:id="parametresCorporelsBtn" onAction="#showParametresCorporels" styleClass="sub-btn" text="Paramètres Corporels">
+                    </Button>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </left>
+    
+    <center>
+        <!-- Main content area from personnel page -->
+        <VBox fx:id="contentArea" spacing="20.0" styleClass="main-content" stylesheets="@ajoutPersonnel.css">
+            <BorderPane.margin>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </BorderPane.margin>
+            <children>
+                <!-- Placeholder for content - to be filled dynamically -->
+                <Label text="Gestion du Personnel" styleClass="page-title">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Label>
+                
+                <!-- Content area will be filled dynamically -->
+                
+                <!-- Confidentiality box -->
+                <VBox styleClass="confidentiality-box">
+                    <Label styleClass="confidentiality-title" text="Politique de confidentialité" />
+                    <Label fx:id="politique_conf" styleClass="confidentiality-text" wrapText="true">
+                        <text>Cette politique de confidentialité militaire décrit la collecte, l'utilisation et la protection des informations sensibles concernant les membres du personnel et les opérations stratégiques. Les données collectées incluent des informations personnelles, telles que le grade, l'identité et les missions, ainsi que des données techniques, comme l'emplacement et les communications. Toute utilisation non autorisée ou tentative de se procurer ces informations est strictement interdite. Les contrevenants seront soumis à des poursuites judiciaires pour atteinte à la sécurité nationale, avec des sanctions sévères allant de lourdes amendes à des peines d'emprisonnement. L'accès non autorisé à ces données pourrait compromettre la sécurité des opérations et mettre en danger la vie des militaires. Nous avons mis en place des mesures de sécurité rigoureuses pour empêcher tout accès illégal. Le non-respect de cette politique expose les contrevenants à des sanctions disciplinaires et judiciaires selon les lois en vigueur.</text>
+                    </Label>
+                </VBox>
+            </children>
+        </VBox>
+    </center>
+    
+    <bottom>
+        <!-- Button bar from personnel page -->
+        <HBox alignment="CENTER" spacing="10" styleClass="button-bar" stylesheets="@ajoutPersonnel.css">
+            <Button fx:id="previousBtn" onAction="#handlePrevious" text="Précédent" />
+            <Button fx:id="nextBtn" onAction="#handleNext" text="Suivant" />
+            <Button fx:id="submitBtn" onAction="#handleSubmit" text="Soumettre" />
+            <Button fx:id="backBtn" onAction="#handleBack" text="Annuler" />
+        </HBox>
+    </bottom>
+</BorderPane>

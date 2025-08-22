@@ -1,0 +1,138 @@
+.root {
+    -fx-background-color: #f0f0f0;
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.search-container {
+    -fx-background-color: white;
+    -fx-background-radius: 5;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 1);
+    -fx-padding: 20;
+}
+
+.question-label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+    -fx-padding: 0 0 10 0;
+}
+
+.search-field {
+    -fx-font-size: 14px;
+    -fx-background-radius: 20;
+    -fx-padding: 8 12 8 12;
+    -fx-prompt-text-fill: #95a5a6;
+}
+
+.search-button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-background-radius: 20;
+    -fx-padding: 8 20 8 20;
+    -fx-cursor: hand;
+}
+
+.search-button:hover {
+    -fx-background-color: #2980b9;
+}
+
+.filter-combo, .filter-field {
+    -fx-font-size: 13px;
+    -fx-background-radius: 15;
+    -fx-padding: 5 10 5 10;
+    -fx-prompt-text-fill: #95a5a6;
+}
+
+.table-view {
+    -fx-background-color: white;
+    -fx-background-radius: 5;
+    -fx-padding: 0;
+    -fx-border-color: #eaeaea;
+    -fx-border-radius: 5;
+    -fx-border-width: 1;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #3498db;
+    -fx-background-radius: 5 5 0 0;
+    -fx-padding: 0 0 5 0;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-background-color: transparent;
+    -fx-size: 35;
+    -fx-border-width: 0 0 0 0;
+    -fx-border-color: transparent;
+}
+
+.table-view .column-header .label {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-alignment: center-left;
+    -fx-padding: 5;
+}
+
+.table-view .table-row-cell {
+    -fx-cell-size: 40px;
+}
+
+.table-view .table-row-cell:odd {
+    -fx-background-color: #f9f9f9;
+}
+
+.table-view .table-row-cell:even {
+    -fx-background-color: white;
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: #b3d9ff;
+}
+
+.table-view .table-cell {
+    -fx-text-fill: #2c3e50;
+    -fx-alignment: center-left;
+    -fx-padding: 5 10 5 10;
+    -fx-border-color: transparent;
+    -fx-font-size: 13px;
+}
+
+/* Styles spécifiques pour les éléments de la barre d'outils */
+.toolbar {
+    -fx-background-color: #34495e;
+    -fx-padding: 8;
+}
+
+.toolbar-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+    -fx-padding: 5 10 5 10;
+    -fx-border-color: transparent;
+    -fx-border-width: 1;
+    -fx-border-radius: 3;
+}
+
+.toolbar-button:hover {
+    -fx-background-color: #2c3e50;
+    -fx-border-color: #1abc9c;
+}
+
+/* Style pour la barre de menu */
+.menu-bar {
+    -fx-background-color: #34495e;
+}
+
+.menu {
+    -fx-text-fill: white;
+}
+
+.menu:hover {
+    -fx-background-color: #2c3e50;
+}
+
+.menu-item {
+    -fx-text-fill: #2c3e50;
+    -fx-padding: 5 20 5 20;
+}

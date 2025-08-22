@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="453.0" prefWidth="1028.0" style="-fx-background-color: #f8f2e6;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <VBox prefHeight="460.0" prefWidth="561.0" styleClass="vbox_background_center" stylesheets="@loginPage.css" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <VBox prefHeight="512.0" prefWidth="403.0" styleClass="vbox_background_right" stylesheets="@loginPage.css" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="127.0" prefWidth="330.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="127.0" prefWidth="332.0" text=" Connectez-vous!" textAlignment="CENTER" textFill="#f5ce80">
+                     <font>
+                        <Font name="Times New Roman Bold" size="36.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="335.0" prefWidth="330.0" spacing="40.0">
+               <children>
+                  <TextField fx:id="identifiant" prefHeight="34.0" prefWidth="366.0" promptText="Identifiant" style="-fx-background-radius: 10;">
+                     <font>
+                        <Font size="15.0" />
+                     </font></TextField>
+                  <PasswordField fx:id="password" layoutX="10.0" layoutY="10.0" prefHeight="34.0" prefWidth="365.0" promptText="Mot de passe" style="-fx-background-radius: 10;">
+                     <font>
+                        <Font size="15.0" />
+                     </font></PasswordField>
+                  <HBox prefHeight="27.0" prefWidth="330.0" spacing="10.0">
+                     <children>
+                        <ComboBox fx:id="formation_combo" prefHeight="34.0" prefWidth="168.0" promptText="Formation" style="-fx-background-radius: 10;" styleClass="create-btn" stylesheets="@loginPage.css" visibleRowCount="15" />
+                        <ComboBox fx:id="unite_combo" prefHeight="31.0" prefWidth="176.0" promptText="Unité" style="-fx-background-radius: 10;" styleClass="create-btn" stylesheets="@loginPage.css" />
+                     </children>
+                  </HBox>
+                  <Button fx:id="connect_btn" mnemonicParsing="false" onAction="#loginAccount" prefHeight="34.0" prefWidth="173.0" style="-fx-background-radius: 10;" styleClass="create-btn" stylesheets="@loginPage.css" text="Se connecter">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Button>
+                  <GridPane alignment="center" hgap="10" vgap="10">
+			</GridPane>
+               </children>
+               <padding>
+                  <Insets left="15.0" right="15.0" />
+               </padding>
+            </VBox>
+         </children>
+      </VBox>
+   </right>
+   <center>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>

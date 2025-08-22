@@ -1,0 +1,142 @@
+.root {
+    -fx-background-color: #f5f5f5;
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.header {
+    -fx-background-color: #3c5d91;
+    -fx-padding: 15px;
+}
+
+.footer {
+    -fx-background-color: #e8e8e8;
+    -fx-border-color: #d0d0d0;
+    -fx-border-width: 1px 0 0 0;
+}
+
+.title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.section-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #3c5d91;
+}
+
+.filter-panel {
+    -fx-background-color: white;
+    -fx-border-color: #d0d0d0;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);
+}
+
+/* Style des boutons */
+.button {
+    -fx-background-radius: 4px;
+    -fx-padding: 8px 15px;
+    -fx-cursor: hand;
+}
+
+.search-btn {
+    -fx-background-color: #3c5d91;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.search-btn:hover {
+    -fx-background-color: #304c79;
+}
+
+.reset-btn {
+    -fx-background-color: #e0e0e0;
+    -fx-text-fill: #333333;
+}
+
+.reset-btn:hover {
+    -fx-background-color: #d0d0d0;
+}
+
+.back-btn {
+    -fx-background-color: #f0f0f0;
+    -fx-text-fill: #333333;
+    -fx-border-color: #d0d0d0;
+    -fx-border-width: 1px;
+}
+
+.back-btn:hover {
+    -fx-background-color: #e0e0e0;
+}
+
+/* Style du tableau */
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: #d0d0d0;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);
+}
+
+.table-view .column-header {
+    -fx-background-color: #3c5d91;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 5px;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-alignment: center-left;
+}
+
+.table-view .table-row-cell {
+    -fx-border-color: transparent transparent #eaeaea transparent;
+    -fx-padding: 5px 0;
+}
+
+.table-view .table-row-cell:even {
+    -fx-background-color: #f7f7f7;
+}
+
+.table-view .table-row-cell:odd {
+    -fx-background-color: white;
+}
+
+.table-view .table-row-cell:hover {
+    -fx-background-color: #e8eef7;
+}
+
+/* Style des dates et combobox */
+.date-picker, .combo-box {
+    -fx-background-color: white;
+    -fx-border-color: #d0d0d0;
+    -fx-border-radius: 3px;
+}
+
+.date-picker:focused, .combo-box:focused {
+    -fx-border-color: #3c5d91;
+}
+
+/* Actions color coding */
+.action-ajout {
+    -fx-text-fill: #228B22; /* ForestGreen */
+}
+
+.action-modification {
+    -fx-text-fill: #1E90FF; /* DodgerBlue */
+}
+
+.action-exportation {
+    -fx-text-fill: #9370DB; /* MediumPurple */
+}
+
+.action-importation {
+    -fx-text-fill: #FF8C00; /* DarkOrange */
+}
+
+.action-suppression {
+    -fx-text-fill: #DC143C; /* Crimson */
+}

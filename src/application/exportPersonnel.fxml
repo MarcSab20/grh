@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="borderPane" prefHeight="612.0" prefWidth="958.0" styleClass="root" stylesheets="@exportPersonnel.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.expPersonnelController">
+    <center>
+        <VBox fx:id="mainContent" spacing="20.0" styleClass="main-content" stylesheets="@exportPersonnel.css">
+            <padding>
+                <Insets top="30.0" right="30.0" bottom="30.0" left="30.0"/>
+            </padding>
+            <Label text="Exporter les données du personnel" styleClass="title"/>
+            <Label text="Veuillez choisir le type d'exportation et un répertoire de destination." wrapText="true" styleClass="description"/>
+            
+            <!-- Options d'exportation -->
+            <VBox spacing="10.0" styleClass="options-box">
+                <Label text="Type d'exportation:" styleClass="section-label"/>
+                <HBox spacing="20.0">
+                    <fx:define>
+                        <ToggleGroup fx:id="exportType"/>
+                    </fx:define>
+                    <RadioButton fx:id="singlePersonnelRadio" text="Personnel spécifique" toggleGroup="$exportType" selected="true" onAction="#handleExportTypeChange"/>
+                    <RadioButton fx:id="allPersonnelRadio" text="Tous les personnels" toggleGroup="$exportType" onAction="#handleExportTypeChange"/>
+                </HBox>
+            </VBox>
+            
+            <!-- Sélection du personnel (visible uniquement si "Personnel spécifique" est sélectionné) -->
+            <VBox fx:id="personnelSelectionBox" spacing="10.0" styleClass="personnel-selection-box">
+                <Label text="Sélectionner un personnel:" styleClass="section-label"/>
+                <ComboBox fx:id="personnelComboBox" prefWidth="400.0" promptText="Choisir un personnel"/>
+            </VBox>
+            
+            <!-- Répertoire de destination -->
+            <HBox spacing="15.0" alignment="CENTER_LEFT">
+                <Label text="Répertoire de destination:" styleClass="label"/>
+                <TextField fx:id="directoryField" promptText="Choisissez un répertoire..." HBox.hgrow="ALWAYS"/>
+                <Button text="Parcourir" onAction="#handleBrowse" styleClass="button"/>
+            </HBox>
+            
+            <!-- Boutons d'action -->
+            <HBox spacing="15.0" alignment="CENTER_RIGHT">
+                <Button text="Annuler" onAction="#handleCancel" styleClass="button, cancel-button"/>
+                <Button text="Exporter" onAction="#handleExport" styleClass="button, confirm-button"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

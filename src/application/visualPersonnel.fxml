@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+
+
+<BorderPane fx:id="borderPane" prefHeight="612.0" prefWidth="958.0" styleClass="root" stylesheets="@modDown.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.visualPersonnelController">
+    <center>
+        <VBox spacing="10" styleClass="main-content">
+        	<HBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 10; -fx-background-color: #f8f9fa; -fx-border-color: #dee2e6; -fx-border-width: 0 0 1 0;">
+		        <Label text="Rechercher un personnel:" style="-fx-font-weight: bold; -fx-font-size: 12px;"/>
+		        <TextField fx:id="searchField" promptText="Nom, prénom ou matricule..." prefWidth="300"/>
+		        <Button fx:id="searchButton" text="Rechercher" onAction="#performSearch" style="-fx-background-color: #007bff; -fx-text-fill: white;"/>
+		        <Button text="Effacer" onAction="#clearSearch" style="-fx-background-color: #6c757d; -fx-text-fill: white;"/>
+		        <Region HBox.hgrow="ALWAYS"/>
+		        <Label text="Total: " style="-fx-font-weight: bold;"/>
+		        <Label fx:id="totalLabel" text="0" style="-fx-font-weight: bold; -fx-text-fill: #007bff;"/>
+		        <Label text=" personnel(s)" style="-fx-font-weight: bold;"/>
+		    </HBox>
+            <TableView fx:id="personnelTable" stylesheets="@modDown.css" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="matriculeColumn" text="Matricule" prefWidth="150" />
+                    <TableColumn fx:id="nomColumn" text="Nom" prefWidth="650" />
+                    <TableColumn fx:id="sexeColumn" text="Sexe" prefWidth="150"/>
+                    <TableColumn fx:id="actionColumn" text="Action" prefWidth="150"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>

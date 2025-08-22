@@ -1,0 +1,99 @@
+.root {
+    -fx-background-color: #f0f0f0;
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.main-content {
+    -fx-background-color: white;
+    -fx-background-radius: 5px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5);
+}
+
+.header-label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1a5276;
+}
+
+.instruction-text {
+    -fx-font-size: 14px;
+    -fx-fill: #555555;
+}
+
+.table-drop-zone {
+    -fx-background-color: #f8f8f8;
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-padding: 15px;
+    -fx-alignment: center;
+    -fx-spacing: 10px;
+}
+
+.table-drop-zone:hover {
+    -fx-background-color: #f0f0f0;
+    -fx-border-color: #aaaaaa;
+}
+
+.table-drop-zone-success {
+    -fx-background-color: #e8f5e9;
+    -fx-border-color: #4caf50;
+}
+
+.table-drop-zone-error {
+    -fx-background-color: #ffebee;
+    -fx-border-color: #f44336;
+}
+
+.table-name-label {
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+.file-name-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: #666666;
+}
+
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 15px;
+    -fx-background-radius: 5px;
+}
+
+.button:hover {
+    -fx-background-color: #2980b9;
+}
+
+.import-button {
+    -fx-background-color: #27ae60;
+}
+
+.import-button:hover {
+    -fx-background-color: #219955;
+}
+
+.clear-button {
+    -fx-background-color: #e74c3c;
+}
+
+.clear-button:hover {
+    -fx-background-color: #c0392b;
+}
+
+.status-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #666666;
+    -fx-padding: 5px 0;
+}

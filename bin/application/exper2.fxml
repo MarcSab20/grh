@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+
+<BorderPane fx:id="borderPane" prefHeight="909.0" prefWidth="1272.0" styleClass="root" stylesheets="@landing.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LandingController">
+    <top>
+        <VBox spacing="0">
+            <MenuBar fx:id="menuBar" stylesheets="@landing.css">
+                <Menu text="Fichier">
+                    <Menu fx:id="personnelMenu" onAction="#handleAddPersonnel" text="Ajouter un personnel" />
+                    <Menu onAction="#handleExportPersonnel" text="Exporter les données" />
+                    <Menu onAction="#handleImportPersonnel" text="Importer les données" />
+                    <Menu fx:id="personnelModDown" onAction="#handlePersonnelModDown" text="Modifier/Télécharger" />
+                    <Menu text="Visualiser un personnel" onAction="#handlePersonnelVisual" />
+                </Menu>
+                <Menu text="Tableau de bord">
+                    <MenuItem text="Statistiques avancées" onAction="#showDashboard" />
+                    <MenuItem text="Page d'accueil" onAction="#showHome" />
+                </Menu>
+                <Menu text="À propos">
+                    <MenuItem fx:id="aboutMenuItem" onAction="#showAboutDialog" text="À propos de l'application" />
+                </Menu>
+                <Menu text="Historique">
+                    <MenuItem fx:id="historyMenuItem" onAction="#showHistory" text="Afficher l'historique" />
+                </Menu>
+            </MenuBar>
+            <ToolBar stylesheets="@landing.css">
+                <HBox spacing="15" alignment="CENTER" HBox.hgrow="ALWAYS">
+                    <Button fx:id="addPersonnel_btn" onAction="#handleNewPersonnel" text="+ Nouveau personnel" />
+                    <Button fx:id="expPersonnel_btn" onAction="#handleExportPersonnel" text="↓ Exporter les données" />
+                    <Button fx:id="impPersonnel_btn" onAction="#handleImportPersonnel" text="↑ Importer les données" />
+                    <Button fx:id="modDownPersonnel_btn" onAction="#handlePersonnelModDown" text="⚙ Modifier ou télécharger" />
+                    <Button fx:id="visPersonnel_btn" onAction="#handlePersonnelVisual" text="👁 Visualiser un personnel" />
+                    <Button fx:id="dashboardBtn" onAction="#showDashboard" text="📊 Tableau de bord" />
+                </HBox>
+            </ToolBar>
+        </VBox>
+    </top>
+    <left>
+        <VBox styleClass="sidebar" stylesheets="@landing.css">
+            <Button fx:id="acceuilBtn" onAction="#showHome" prefHeight="24.0" prefWidth="89.0" text="Accueil">
+                <font>
+                    <Font size="16.0" />
+                </font>
+            </Button>
+            <Button fx:id="fouillerBtn" onAction="#showSearch" prefHeight="24.0" prefWidth="89.0" text="Fouiller">
+                <font>
+                    <Font size="16.0" />
+                </font>
+            </Button>
+            <Button fx:id="dashboardSideBtn" onAction="#showDashboard" prefHeight="24.0" prefWidth="89.0" text="Dashboard">
+                <font>
+                    <Font size="16.0" />
+                </font>
+            </Button>
+        </VBox>
+    </left>
+    <center>
+        <VBox fx:id="mainContent" spacing="20.0" styleClass="main-content" stylesheets="@landing.css">
+            <BorderPane.margin>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </BorderPane.margin>
+            <children>
+                <Label text="Tableau de bord du système de gestion du personnel militaire" styleClass="dashboard-title">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Label>
+                
+                <HBox alignment="CENTER" spacing="20.0" styleClass="info-container">
+                    <VBox alignment="CENTER" styleClass="info-box" HBox.hgrow="ALWAYS">
+                        <Label styleClass="info-title" text="Personnel actif" />
+                        <Label fx:id="totalPersonnelLabel" styleClass="info-value" text="Chargement..." />
+                    </VBox>
+                    <VBox alignment="CENTER" styleClass="info-box" HBox.hgrow="ALWAYS">
+                        <Label styleClass="info-title" text="Personnel Féminin" />
+                        <Label fx:id="femininPersonnelLabel" styleClass="info-value" text="Chargement..." />
+                    </VBox>
+                    <VBox alignment="CENTER" styleClass="info-box" HBox.hgrow="ALWAYS">
+                        <Label styleClass="info-title" text="Nombre de formations" />
+                        <Label fx:id="formationsCountLabel" styleClass="info-value" text="Chargement..." />
+                    </VBox>
+                    <VBox alignment="CENTER" styleClass="info-box" HBox.hgrow="ALWAYS">
+                        <Label styleClass="info-title" text="Pourcentage d'officiers" />
+                        <Label fx:id="officiersPctLabel" styleClass="info-value" text="Chargement..." />
+                    </VBox>
+                    <VBox alignment="CENTER" styleClass="info-box" HBox.hgrow="ALWAYS">
+                        <Label styleClass="info-title" text="Personnel spécialisé" />
+                        <Label fx:id="specialiseePctLabel" styleClass="info-value" text="Chargement..." />
+                    </VBox>
+                </HBox>
+                
+                <!-- Ajout de visualisations de données -->
+                <GridPane hgap="20" vgap="20">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="50" />
+                        <ColumnConstraints percentWidth="50" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints percentHeight="100" />
+                    </rowConstraints>
+                    
+                    <!-- Graphique camembert -->
+                    <VBox GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="chart-container">
+                        <Label text="Répartition du personnel par formation" styleClass="info-title"/>
+                        <PieChart fx:id="personnelChart" legendVisible="true" labelsVisible="true" />
+                    </VBox>
+                    
+                    <!-- Graphique barre -->
+                    <VBox GridPane.columnIndex="1" GridPane.rowIndex="0" styleClass="chart-container">
+                        <Label text="Évolution des effectifs" styleClass="info-title"/>
+                        <BarChart fx:id="evolutionChart">
+                            <xAxis>
+                                <CategoryAxis side="BOTTOM" label="Période" />
+                            </xAxis>
+                            <yAxis>
+                                <NumberAxis side="LEFT" label="Effectifs" />
+                            </yAxis>
+                        </BarChart>
+                    </VBox>
+                </GridPane>
+                
+                <!-- Module de statistiques récentes -->
+                <HBox spacing="20">
+                    <VBox spacing="10" styleClass="chart-container" HBox.hgrow="ALWAYS">
+                        <Label text="Statistiques" styleClass="info-title"/>
+                        <GridPane vgap="15" hgap="10">
+                            <columnConstraints>
+                                <ColumnConstraints percentWidth="40" />
+                                <ColumnConstraints percentWidth="60" />
+                            </columnConstraints>
+                            
+                            <Label text="Opérations intérieures" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                            <Label fx:id="opInterieuresLabel" text="Chargement..." GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                            
+                            <Label text="Opérations extérieures" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                            <Label fx:id="opExtérieuresLabel" text="Chargement..." GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                            
+                            <Label text="Écoles militaires" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                            <Label fx:id="ecolesMilitairesLabel" text="Chargement..." GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                            
+                            <Label text="Langues parlées" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                            <Label fx:id="languesParleesLabel" text="Chargement..." GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        </GridPane>
+                    </VBox>
+                    
+                    <VBox spacing="10" styleClass="chart-container" HBox.hgrow="ALWAYS">
+                        <Label text="Actions rapides" styleClass="info-title"/>
+                        <HBox spacing="10" alignment="CENTER">
+                            <Button text="Nouveau personnel" styleClass="quick-action-button" onAction="#handleNewPersonnel"/>
+                            <Button text="Tableau de bord avancé" styleClass="quick-action-button" onAction="#showDashboard"/>
+                            <Button text="Recherche" styleClass="quick-action-button" onAction="#showSearch"/>
+                        </HBox>
+                    </VBox>
+                </HBox>
+                
+                <!-- Politique de confidentialité avec un design plus moderne -->
+                <VBox styleClass="confidentiality-box">
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Label styleClass="confidentiality-title" text="Politique de confidentialité" />
+                    </HBox>
+                    <Label fx:id="politique_conf" styleClass="confidentiality-text" wrapText="true">
+                        <text>Cette politique de confidentialité militaire décrit la collecte, l'utilisation et la protection des informations sensibles concernant les membres du personnel et les opérations stratégiques. Les données collectées incluent des informations personnelles, telles que le grade, l'identité et les missions, ainsi que des données techniques, comme l'emplacement et les communications. Toute utilisation non autorisée ou tentative de se procurer ces informations est strictement interdite. Les contrevenants seront soumis à des poursuites judiciaires pour atteinte à la sécurité nationale, avec des sanctions sévères allant de lourdes amendes à des peines d'emprisonnement. L'accès non autorisé à ces données pourrait compromettre la sécurité des opérations et mettre en danger la vie des militaires. Nous avons mis en place des mesures de sécurité rigoureuses pour empêcher tout accès illégal. Le non-respect de cette politique expose les contrevenants à des sanctions disciplinaires et judiciaires selon les lois en vigueur.</text>
+                    </Label>
+                </VBox>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>

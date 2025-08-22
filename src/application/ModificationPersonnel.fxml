@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="borderPane" prefHeight="768.0" prefWidth="1024.0" styleClass="root" stylesheets="@modDown.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ModificationPersonnelController">
+    <top>
+        <VBox spacing="0">
+            <!-- Menu Bar -->
+            <MenuBar stylesheets="@landing.css">
+                <Menu text="Fichier">
+                    <MenuItem text="Ajouter un personnel" />
+                    <MenuItem text="Exporter les données" />
+                    <MenuItem text="Importer les données" />
+                    <MenuItem text="Modifier/Télécharger" />
+                    <MenuItem text="Visualiser un personnel" />
+                </Menu>
+                <Menu text="Navigation">
+                    <MenuItem text="Revenir à l'accueil" onAction="#handleBack" />
+                </Menu>
+                <Menu text="À propos">
+                    <MenuItem text="À propos de l'application" />
+                </Menu>
+            </MenuBar>
+            
+            <!-- ToolBar -->
+            <ToolBar stylesheets="@landing.css">
+                <HBox spacing="15" alignment="CENTER" HBox.hgrow="ALWAYS">
+                    <Label text="Modification du Personnel" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+                </HBox>
+            </ToolBar>
+        </VBox>
+    </top>
+    
+    <center>
+        <VBox spacing="15" styleClass="main-content" stylesheets="@modDown.css" VBox.vgrow="ALWAYS">
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+            
+            <!-- Zone de recherche et filtres avec wrapping amélioré -->
+            <VBox spacing="10" styleClass="search-box">
+                <!-- Première ligne de filtres -->
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <TextField fx:id="searchField" promptText="Rechercher par nom ou matricule" prefWidth="200" minWidth="150" HBox.hgrow="SOMETIMES" />
+                    <ComboBox fx:id="formationFilter" promptText="Formation" prefWidth="180" minWidth="150" />
+                    <ComboBox fx:id="gradeFilter" promptText="Grade" prefWidth="180" minWidth="150" />
+                    <Button fx:id="searchButton" text="Rechercher" onAction="#handleSearch" prefWidth="120" />
+                </HBox>
+                
+                <!-- Deuxième ligne de filtres (sera ajoutée dynamiquement par le contrôleur) -->
+                <!-- Les filtres supplémentaires seront créés dynamiquement dans le code Java -->
+            </VBox>
+            
+            <!-- Tableau de personnel avec configuration pour prendre toute la largeur -->
+            <TableView fx:id="personnelTable" VBox.vgrow="ALWAYS" prefWidth="Infinity" maxWidth="Infinity">
+                <columns>
+                    <TableColumn fx:id="matriculeColumn" text="Matricule" prefWidth="120" />
+                    <TableColumn fx:id="nomColumn" text="Nom" prefWidth="150" />
+                    <TableColumn fx:id="prenomColumn" text="Prénom" prefWidth="150" />
+                    <TableColumn fx:id="formationColumn" text="Formation" prefWidth="150" />
+                    <TableColumn fx:id="gradeColumn" text="Grade" prefWidth="150" />
+                </columns>
+            </TableView>
+            
+            <!-- Boutons d'action -->
+            <HBox alignment="CENTER" spacing="20">
+                <Button text="Modifier" onAction="#handleModify" styleClass="action-button" prefWidth="120" />
+                <Button fx:id="backButton" text="Retour" onAction="#handleBack" styleClass="action-button" prefWidth="120" />
+            </HBox>
+            
+            <!-- Zone d'information -->
+            <VBox styleClass="info-box" spacing="10" maxHeight="120">
+                <Label text="Instructions:" styleClass="info-title">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Label text="1. Sélectionnez un personnel dans le tableau." wrapText="true" />
+                <Label text="2. Cliquez sur 'Modifier' pour ouvrir l'assistant de modification." wrapText="true" />
+                <Label text="3. Vous devrez vous authentifier pour accéder aux données." wrapText="true" />
+                <Label text="4. Sélectionnez les sections que vous souhaitez modifier et effectuez vos changements." wrapText="true" />
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>

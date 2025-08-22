@@ -1,0 +1,164 @@
+/* Styles généraux */
+.root {
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-background-color: #f8f9fa;
+}
+
+/* Style de l'en-tête */
+.header {
+    -fx-background-color: #3c72b0;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 5);
+}
+
+.header-title {
+    -fx-text-fill: white;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+/* Style du contenu du tableau de bord */
+.dashboard-content {
+    -fx-background-color: transparent;
+}
+
+/* Style des titres de section */
+.section-title {
+    -fx-text-fill: #2c3e50;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-padding: 5 0 5 0;
+}
+
+/* Style des cartes de statistiques */
+.stat-card {
+    -fx-background-color: white;
+    -fx-background-radius: 5px;
+    -fx-padding: 15px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 3);
+    -fx-min-width: 200px;
+    -fx-min-height: 120px;
+}
+
+.stat-title {
+    -fx-text-fill: #3c72b0;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.stat-value {
+    -fx-text-fill: #2c3e50;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+.stat-description {
+    -fx-text-fill: #7f8c8d;
+    -fx-font-size: 12px;
+}
+
+/* Style des conteneurs de graphiques */
+.chart-container {
+    -fx-background-color: white;
+    -fx-background-radius: 5px;
+    -fx-padding: 15px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 3);
+}
+
+/* Style des graphiques */
+.chart {
+    -fx-padding: 10px;
+}
+
+.chart-title {
+    -fx-text-fill: #3c72b0;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.chart-legend {
+    -fx-background-color: transparent;
+}
+
+.chart-pie-label {
+    -fx-fill: #2c3e50;
+}
+
+.chart-pie-label-line {
+    -fx-stroke: #3c72b0;
+    -fx-stroke-width: 1px;
+}
+
+/* Style des tableaux */
+.personnel-table {
+    -fx-background-color: white;
+    -fx-background-radius: 5px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 3);
+}
+
+.personnel-table .column-header {
+    -fx-background-color: #3c72b0;
+    -fx-text-fill: white;
+}
+
+.personnel-table .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.personnel-table .table-row-cell:selected {
+    -fx-background-color: #c9ddf5;
+}
+
+/* Style du pied de page */
+.footer {
+    -fx-background-color: #f0f0f0;
+    -fx-border-color: #d0d0d0;
+    -fx-border-width: 1px 0 0 0;
+}
+
+/* Style des boutons */
+.refresh-button {
+    -fx-background-color: #3c72b0;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 15px;
+    -fx-background-radius: 4px;
+}
+
+.refresh-button:hover {
+    -fx-background-color: #2c5d8f;
+}
+
+.back-button {
+    -fx-background-color: #6c757d;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 15px;
+    -fx-background-radius: 4px;
+}
+
+.back-button:hover {
+    -fx-background-color: #5a6268;
+}
+
+/* Style du défilement */
+.main-scroll {
+    -fx-background-color: transparent;
+}
+
+.main-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+/* Couleurs des parties du camembert */
+.default-color0.chart-pie { -fx-pie-color: #4e73df; }
+.default-color1.chart-pie { -fx-pie-color: #1cc88a; }
+.default-color2.chart-pie { -fx-pie-color: #36b9cc; }
+.default-color3.chart-pie { -fx-pie-color: #f6c23e; }
+.default-color4.chart-pie { -fx-pie-color: #e74a3b; }
+.default-color5.chart-pie { -fx-pie-color: #5a5c69; }
+.default-color6.chart-pie { -fx-pie-color: #858796; }
+.default-color7.chart-pie { -fx-pie-color: #6610f2; }
+
+/* Couleurs des barres du graphique à barres */
+.default-color0.chart-bar { -fx-bar-fill: #4e73df; }
